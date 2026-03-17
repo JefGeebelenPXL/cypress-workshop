@@ -1,0 +1,8 @@
+{
+  "URLs": [
+    "https://example.cypress.io/commands/actions",
+    "https://example.cypress.io/commands/aliasing",
+    "https://example.cypress.io/commands/assertions",
+    "https://example.cypress.io/commands/connectors"
+  ]
+}

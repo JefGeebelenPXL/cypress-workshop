@@ -1,0 +1,54 @@
+{
+  "name": "ref-template-cypress",
+  "version": "1.0.1",
+  "description": "Cypress reference application for demo purposes.",
+  "main": "index.js",
+  "scripts": {
+    "compile": "npx prettier --write . && eslint",
+    "compile:fix": "npx prettier --write . && eslint --fix",
+    "cypress:open:specs": "npx cypress open --config-file cypress.config.spec.js",
+    "cypress:run:specs": "npm run clean:data && npm run run:specs",
+    "run:specs": "npx cypress run --config-file cypress.config.spec.js --spec 'cypress/e2e/1-advanced-examples/*.js'",
+    "cypress:run:non-functional-performance-examples": "npm run clean:data && npm run run:non-functional-performance-examples",
+    "run:non-functional-performance-examples": "npx cypress run --browser chrome --config-file cypress.config.lighthouse.js --spec 'cypress/e2e/3-non-functional-performance-examples/*.js'",
+    "cypress:run:non-functional-a11y-examples": "npm run clean:data && npm run run:non-functional-a11y-examples",
+    "run:non-functional-a11y-examples": "npx cypress run --browser chrome --config-file cypress.config.a11y.js --spec 'cypress/e2e/4-non-functional-a11y-examples/*.js'",
+    "cypress:open:cucumber": "npx cypress open --config-file cypress.config.cucumber.js",
+    "cypress:run:cucmber": "npm run clean:data && npm run run:cucumber",
+    "run:cucumber": "npx cypress run --config-file cypress.config.cucumber.js --spec 'cypress/e2e/2-cucumber-examples/*.feature'",
+    "clean:data": "npm run clean:report && npm run clean:performance:reports && npm run clean:a11y:reports && npm run clean:videos && npm run clean:screenshots",
+    "clean:report": "rm -rf ./reports/*",
+    "clean:performance:reports": "rm -rf ./reports-lighthouse/*",
+    "clean:a11y:reports": "rm -rf ./reports-a11y/*",
+    "clean:videos": "rm -rf ./cypress/videos",
+    "clean:screenshots": "rm -rf ./cypress/screenshots"
+  },
+  "author": "Refleqt NV",
+  "license": "Private",
+  "keywords": [
+    "cypress",
+    "testing"
+  ],
+  "devDependencies": {
+"cypress": "^15.10.0",
+    "cypress-mochawesome-reporter": "^4.0.2",
+    "eslint-plugin-cypress": "^5.3.0"
+  },
+  "dependencies": {
+"@badeball/cypress-cucumber-preprocessor": "^24.0.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.8",
+    "@cypress-audit/lighthouse": "^1.4.2",
+    "@eslint/js": "^10.0.1",
+    "axe-core": "^4.11.1",
+    "axe-html-reporter": "^2.2.11",
+    "cypress-axe": "^1.7.0",
+    "cypress-multi-reporters": "^2.0.5",
+    "cypress-on-fix": "^1.1.0",
+    "eslint-config-google": "^0.14.0",
+    "junit-report-merger": "^9.0.3",
+    "mocha": "^11.7.5",
+    "mocha-junit-reporter": "^2.2.1",
+    "prettier": "^3.8.1",
+    "uuid": "^13.0.0"
+  }
+}
